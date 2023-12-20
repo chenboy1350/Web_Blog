@@ -25,12 +25,18 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <% for(let items of blog_list){ %>
-                            <% if(items[5] % 2 !=0) { %>
+                            <% if(items[5] % 2 != 0) { %>
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="<%= items[0] %>" alt="cat-meme2" /></a>
+                                <a href="#!"><img class="card-img-top" src="<%= items[0] %>" alt="<%= items[0] %>" /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">
                                         <%= items[1] %>
+                                    </div>
+                                    <div class="small text-muted">
+                                        Size : <%= items[4] %>
+                                    </div>
+                                    <div class="small text-muted">
+                                        Index : <%= items[5] %>
                                     </div>
                                     <h2 class="card-title h4">
                                         <%= items[2] %>
@@ -38,8 +44,8 @@
                                     <p class="card-text">
                                         <%= items[3] %>
                                     </p>
-                                    <a class="btn btn-primary" href="#!">Edit Blog</a>
-                                    <a class="btn btn-danger" href="#!">Remove Blog</a>
+                                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Edit<%= items[6]+"Modal" %>">Edit Blog</a>
+                                    <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Remove<%= items[6]+"Modal" %>">Remove Blog</a>
                                 </div>
                             </div>
                             <% }} %>
@@ -47,12 +53,18 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <% for(let items of blog_list){ %>
-                            <% if(items[5] % 2 ==0) { %>
+                            <% if(items[5] % 2 == 0) { %>
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="<%= items[0] %>" alt="cat-meme2" /></a>
+                                <a href="#!"><img class="card-img-top" src="<%= items[0] %>" alt="<%= items[0] %>" /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">
                                         <%= items[1] %>
+                                    </div>
+                                    <div class="small text-muted">
+                                        Size : <%= items[4] %>
+                                    </div>
+                                    <div class="small text-muted">
+                                        Index : <%= items[5] %>
                                     </div>
                                     <h2 class="card-title h4">
                                         <%= items[2] %>
@@ -60,8 +72,8 @@
                                     <p class="card-text">
                                         <%= items[3] %>
                                     </p>
-                                    <a class="btn btn-primary" href="#!">Edit Blog</a>
-                                    <a class="btn btn-danger" href="#!">Remove Blog</a>
+                                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Edit<%= items[6] %>Modal">Edit Blog</a>
+                                    <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Remove<%= items[6] %>Modal">Remove Blog</a>
                                 </div>
                             </div>
                             <% }} %>
@@ -72,9 +84,9 @@
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Add something New dude?</div>
+                        <div class="card-header">Do you wanna add something New dude?</div>
                         <div class="card-body">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddModal" data-bs-whatever="">Yub!</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddModal">Yub!</button>
                         </div>
                     </div>
                 </div>
@@ -89,24 +101,36 @@
                         <h1 class="modal-title fs-5" id="AddModalLabel">Add New Blog! Bro!</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form>
+                    <form action="/add" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label" for="postImages">Title Images:</label>
-                                    <input type="file" class="form-control" id="postImages" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Date Time:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Blog Title:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">Blog Content:</label>
-                                    <textarea class="form-control" id="message-text" rows="3"></textarea>
-                                </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="image">Title Images:</label>
+                                <input type="file" class="form-control" name="image" id="image" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="postDate" class="col-form-label">Date Time:</label>
+                                <input type="text" class="form-control" name="postDate" id="postDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="postTitle" class="col-form-label">Blog Title:</label>
+                                <input type="text" class="form-control" name="postTitle" id="postTitle">
+                            </div>
+                            <div class="mb-3">
+                                <label for="postContent" class="col-form-label">Blog Content:</label>
+                                <textarea class="form-control" name="postContent" id="postContent" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="postSize" class="col-form-label">Card Size:</label>
+                                <select class="form-select" aria-label="Default select example" name="postSize" id="postSize">
+                                    <option selected>- Selest Card Size -</option>
+                                    <option value="lg">Large</option>
+                                    <option value="sm">Small</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="postIndex" class="col-form-label">Content Index:</label>
+                                <input type="number" class="form-control" name="postIndex" id="postIndex">
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">I has change my mind, Thanks Bro!</button>
@@ -117,15 +141,16 @@
             </div>
         </div>
 
-        <!-- Blog Modal -->
-        <div class="modal fade" id="lg1Modal" tabindex="-1" aria-labelledby="lg1ModalLabel" aria-hidden="true">
+        <!-- Edit Blog Modal -->
+        <% for(let items of blog_list){ %>
+        <div class="modal fade" id="Edit<%= items[6] %>Modal" tabindex="-1" aria-labelledby="Edit<%= items[6] %>ModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="lg1ModalLabel">Want to edit someting huh!?</h1>
+                        <h1 class="modal-title fs-5" id="Edit<%= items[6] %>ModalLabel">Want to edit someting huh!?</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form>
+                    <form action="/edit" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label class="form-label" for="postImages">Title Images:</label>
@@ -143,13 +168,36 @@
                                 <label for="message-text" class="col-form-label">Blog Content:</label>
                                 <textarea class="form-control" id="message-text" rows="3"></textarea>
                             </div>
+                            <input type="hidden" name="blogID" value="">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No I'm Not.</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, I'm Not.</button>
                             <button type="submit" class="btn btn-primary">Yeah!</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <% } %>
+
+        <!-- Remove Blog Modal -->
+        <% for(let items of blog_list){ %>
+        <div class="modal fade" id="Remove<%= items[6] %>Modal" tabindex="-1" aria-labelledby="Remove<%= items[6] %>ModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="Remove<%= items[6] %>ModalLabel">Are you sure guy?</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        What you are going to do It can't go back dude.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nop. I'm Not strong enough</button>
+                        <button type="button" class="btn btn-danger">Yep. Let's do it!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
 <%- include('./partials/footer'); -%>

@@ -1,0 +1,74 @@
+[
+  {
+    "postImage": "images/meme1.png",
+    "postDate": "January 1, 2023",
+    "postTitle": "I cut my hair cause You didn't care my heart..",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!",
+    "contentSize": "lg",
+    "contentIndex": 1,
+    "blogID": "cb001"
+  },
+  {
+    "postImage": "images/meme2.png",
+    "postDate": "January 2, 2023",
+    "postTitle": "When my girlfriend asks me what's wrong with me, but I cutting onion.",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
+    "contentSize": "sm",
+    "contentIndex": 1,
+    "blogID": "cb002"
+  },
+  {
+    "postImage": "images/meme3.png",
+    "postDate": "January 3, 2023",
+    "postTitle": "My girlfriend was sulking with me for 3 days, but I was sulking with her for only 3 minutes. It's not fair!",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
+    "contentSize": "sm",
+    "contentIndex": 2,
+    "blogID": "cb003"
+  },
+  {
+    "postImage": "images/meme4.png",
+    "postDate": "January 4, 2023",
+    "postTitle": "Thanks for vegetarian dude, but don't have to later.",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
+    "contentSize": "sm",
+    "contentIndex": 3,
+    "blogID": "cb004"
+  },
+  {
+    "postImage": "images/meme5.png",
+    "postDate": "January 5, 2023",
+    "postTitle": "Sugar kitten is becoming popular in Thailand",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
+    "contentSize": "sm",
+    "contentIndex": 4,
+    "blogID": "cb005"
+  },
+  {
+    "postImage": "images/meme11.png",
+    "postDate": "October 29, 1998",
+    "postTitle": "HBD",
+    "postContent": "Have a nice day.",
+    "contentSize": "lg",
+    "contentIndex": 2,
+    "blogID": "cb006"
+  },
+  {
+    "postImage": "images/meme10.png",
+    "postDate": "December 20, 2023",
+    "postTitle": "On the afternoon after I have lunch.",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
+    "contentSize": "sm",
+    "contentIndex": 5,
+    "blogID": "cb007"
+  },
+  {
+    "postImage": "images/meme13.png",
+    "postDate": "April 14, 2022",
+    "postTitle": " Me when hear gossip nois.",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
+    "contentSize": "sm",
+    "contentIndex": 6,
+    "blogID": "cb008"
+  }
+]
