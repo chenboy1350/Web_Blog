@@ -10,7 +10,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/manage">Blog Manage</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/post">Post</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,9 +31,9 @@
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
                     <% for(let items of blog_list){ %>
-                    <% if(items[4] === "lg"){ %>
+                    <% if(items[4] === "lg" && items[7] == 1){ %>
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="<%= items[0] %>" alt="cat-meme1" /></a>
+                        <a href="#!"><img class="card-img-top" src="images/<%= items[0] %>" alt="cat-meme1" /></a>
                         <div class="card-body">
                             <div name="post_date" class="small text-muted"><%= items[1] %></div>
                             <h2 name="post_title" class="card-title"><%= items[2] %></h2>
@@ -47,9 +47,9 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <% for(let items of blog_list){ %>
-                            <% if(items[4]==="sm" && (items[5] % 2 != 0) ){ %>
+                            <% if(items[4]==="sm" && (items[5] % 2 != 0) && items[7] == 1){ %>
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="<%= items[0] %>" alt="cat-meme2" /></a>
+                                <a href="#!"><img class="card-img-top" src="images/<%= items[0] %>" alt="cat-meme2" /></a>
                                 <div class="card-body">
                                     <div class="small text-muted"><%= items[1] %></div>
                                     <h2 class="card-title h4"><%= items[2] %></h2>
@@ -62,9 +62,9 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <% for(let items of blog_list){ %>
-                            <% if(items[4]==="sm" && (items[5] % 2 == 0) ){ %>
+                            <% if(items[4]==="sm" && (items[5] % 2 == 0) && items[7] == 1){ %>
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="<%= items[0] %>" alt="cat-meme4" /></a>
+                                <a href="#!"><img class="card-img-top" src="images/<%= items[0] %>" alt="cat-meme4" /></a>
                                 <div class="card-body">
                                     <div class="small text-muted"><%= items[1] %></div>
                                     <h2 class="card-title h4"><%= items[2] %></h2>

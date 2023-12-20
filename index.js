@@ -37,8 +37,14 @@ app.post("/add", (req, res) => {
 
   const { image } = req.files;
 
-  if (!image) return res.sendStatus(400);
-  if (!image.mimetype.startsWith("image")) return res.sendStatus(400);
+  if (!image) return res
+    .status(400)
+    .contentType("text/plain")
+    .end("Oops! Something went wrong!");
+  if (!image.mimetype.startsWith("image")) return res
+    .status(400)
+    .contentType("text/plain")
+    .end("Oops! Something went wrong!");
 
   image.mv(image_path + image.name);
 
@@ -51,17 +57,19 @@ app.post("/add", (req, res) => {
       contentSize: post_obj[i].contentSize,
       contentIndex: post_obj[i].contentIndex,
       blogID: post_obj[i].blogID,
+      isActive: post_obj[i].isActive,
     });
   }
 
   temp_list.push({
-    postImage: "images/" + image.name,
+    postImage: image.name,
     postDate: req.body.postDate,
     postTitle: req.body.postTitle,
     postContent: req.body.postContent,
     contentSize: req.body.postSize,
     contentIndex: parseInt(req.body.postIndex),
     blogID: generateBlogID(),
+    isActive: 1,
   });
 
   let content = JSON.stringify(temp_list);
@@ -79,11 +87,105 @@ app.post("/add", (req, res) => {
 });
 
 app.post("/edit", (req, res) => {
+  let temp_list = [];
 
+  for (let i in post_obj) {
+    if (post_obj[i].blogID === req.body.blogID) {
+      temp_list.push({
+        postImage: post_obj[i].postImage,
+        postDate: req.body.postDate,
+        postTitle: req.body.postTitle,
+        postContent: req.body.postContent,
+        contentSize: req.body.postSize,
+        contentIndex: req.body.postIndex,
+        blogID: post_obj[i].blogID,
+        isActive: post_obj[i].isActive,
+      });
+    } else {
+      temp_list.push({
+        postImage: post_obj[i].postImage,
+        postDate: post_obj[i].postDate,
+        postTitle: post_obj[i].postTitle,
+        postContent: post_obj[i].postContent,
+        contentSize: post_obj[i].contentSize,
+        contentIndex: post_obj[i].contentIndex,
+        blogID: post_obj[i].blogID,
+        isActive: post_obj[i].isActive,
+      });
+    }
+  }
+
+  let content = JSON.stringify(temp_list);
+
+  console.log(content);
+
+  fs.writeFile(mockData_path, content, "utf8", function (err) {
+    if (err) {
+      console.log("An error occured while writing JSON Object to File.");
+      return console.log(err);
+    }
+
+    console.log("JSON file has been saved.");
+  });
+
+  res.redirect("/manage");
+});
+app.post("/remove", (req, res) => {
+  let temp_list = [];
+
+  for (let i in post_obj) {
+    if (post_obj[i].blogID === req.body.blogID) {
+      temp_list.push({
+        postImage: post_obj[i].postImage,
+        postDate: post_obj[i].postDate,
+        postTitle: post_obj[i].postTitle,
+        postContent: post_obj[i].postContent,
+        contentSize: post_obj[i].contentSize,
+        contentIndex: post_obj[i].contentIndex,
+        blogID: post_obj[i].blogID,
+        isActive: 0,
+      });
+    } else {
+      temp_list.push({
+        postImage: post_obj[i].postImage,
+        postDate: post_obj[i].postDate,
+        postTitle: post_obj[i].postTitle,
+        postContent: post_obj[i].postContent,
+        contentSize: post_obj[i].contentSize,
+        contentIndex: post_obj[i].contentIndex,
+        blogID: post_obj[i].blogID,
+        isActive: post_obj[i].isActive,
+      });
+    }
+  }
+
+  let content = JSON.stringify(temp_list);
+
+  fs.writeFile(mockData_path, content, "utf8", function (err) {
+    if (err) {
+      console.log("An error occured while writing JSON Object to File.");
+      return console.log(err);
+    }
+
+    console.log("JSON file has been saved.");
+  });
+
+  //let temp_list = post_obj.filter((x) => x.blogID === req.body.blogID);
+
+  // fs.unlink(image_path + temp_list[0].postImage, (err) => {
+  //   if (err) {
+  //     console.log("An error occured while deleting File.");
+  //     return console.log(err);
+  //   }
+
+  //   console.log("Delete File successfully.");
+  // });
+
+  res.redirect("/manage");
 });
 
-app.post("/remove", (req, res) => {
-
+app.get("/post", (req, res) => {
+  res.render("post");
 });
 
 app.listen(port, () => {
@@ -104,6 +206,7 @@ function loadMockDataFromJson(path) {
       content[i].contentSize,
       content[i].contentIndex,
       content[i].blogID,
+      content[i].isActive,
     ]);
   }
   

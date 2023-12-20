@@ -1,74 +1,122 @@
 [
   {
-    "postImage": "images/meme1.png",
+    "postImage": "meme1.png",
     "postDate": "January 1, 2023",
     "postTitle": "I cut my hair cause You didn't care my heart..",
     "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!",
     "contentSize": "lg",
     "contentIndex": 1,
-    "blogID": "cb001"
+    "blogID": "cb001",
+    "isActive": 1
   },
   {
-    "postImage": "images/meme2.png",
+    "postImage": "meme2.png",
     "postDate": "January 2, 2023",
     "postTitle": "When my girlfriend asks me what's wrong with me, but I cutting onion.",
     "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
     "contentSize": "sm",
     "contentIndex": 1,
-    "blogID": "cb002"
+    "blogID": "cb002",
+    "isActive": 1
   },
   {
-    "postImage": "images/meme3.png",
+    "postImage": "meme3.png",
     "postDate": "January 3, 2023",
     "postTitle": "My girlfriend was sulking with me for 3 days, but I was sulking with her for only 3 minutes. It's not fair!",
     "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
     "contentSize": "sm",
     "contentIndex": 2,
-    "blogID": "cb003"
+    "blogID": "cb003",
+    "isActive": 1
   },
   {
-    "postImage": "images/meme4.png",
+    "postImage": "meme4.png",
     "postDate": "January 4, 2023",
     "postTitle": "Thanks for vegetarian dude, but don't have to later.",
     "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
     "contentSize": "sm",
     "contentIndex": 3,
-    "blogID": "cb004"
+    "blogID": "cb004",
+    "isActive": 1
   },
   {
-    "postImage": "images/meme5.png",
+    "postImage": "meme5.png",
     "postDate": "January 5, 2023",
     "postTitle": "Sugar kitten is becoming popular in Thailand",
     "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
     "contentSize": "sm",
     "contentIndex": 4,
-    "blogID": "cb005"
+    "blogID": "cb005",
+    "isActive": 1
   },
   {
-    "postImage": "images/meme11.png",
+    "postImage": "meme11.png",
     "postDate": "October 29, 1998",
-    "postTitle": "HBD",
-    "postContent": "Have a nice day.",
-    "contentSize": "lg",
-    "contentIndex": 2,
-    "blogID": "cb006"
+    "postTitle": "When I was heartbroken before we were even together T-T",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
+    "contentSize": "sm",
+    "contentIndex": "2",
+    "blogID": "cb006",
+    "isActive": 1
   },
   {
-    "postImage": "images/meme10.png",
+    "postImage": "meme10.png",
     "postDate": "December 20, 2023",
     "postTitle": "On the afternoon after I have lunch.",
     "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
     "contentSize": "sm",
     "contentIndex": 5,
-    "blogID": "cb007"
+    "blogID": "cb007",
+    "isActive": 1
   },
   {
-    "postImage": "images/meme13.png",
+    "postImage": "meme13.png",
     "postDate": "April 14, 2022",
     "postTitle": " Me when hear gossip nois.",
     "postContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.",
     "contentSize": "sm",
     "contentIndex": 6,
-    "blogID": "cb008"
+    "blogID": "cb008",
+    "isActive": 1
+  },
+  {
+    "postImage": "meme9.png",
+    "postDate": "December 31, 2023",
+    "postTitle": "My life in the end of the year.",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut laoreet nisl.",
+    "contentSize": "sm",
+    "contentIndex": 1,
+    "blogID": "cb009",
+    "isActive": 1
+  },
+  {
+    "postImage": "meme8.png",
+    "postDate": "November 31, 2990",
+    "postTitle": "All cat please listen. some day we will dominate this world. Meaw!",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut laoreet nisl. Aliquam at suscipit augue, vitae consectetur nisl. Sed dignissim sit amet justo vitae molestie. In eleifend velit vel leo interdum commodo. In molestie sed enim vel dignissim. Phasellus non finibus odio. Ut viverra lacinia leo id aliquet. Cras suscipit viverra odio, ut dapibus enim facilisis vitae. Vivamus lacinia lacus eget lorem placerat, lacinia condimentum dui malesuada. Mauris et dolor id odio ornare condimentum.",
+    "contentSize": "lg",
+    "contentIndex": "2",
+    "blogID": "cb0010",
+    "isActive": 1
+  },
+  {
+    "postImage": "meme6.png",
+    "postDate": "June 25, 2000",
+    "postTitle": "Whoever reads this will turn to a cat.",
+    "postContent": "\r\n- Lorem ipsum dolor sit amet, consectetur adipiscing elit.\r\n- Aenean non lorem consequat, faucibus arcu sit amet, euismod metus.\r\n- Etiam sed mauris ut risus bibendum consequat.\r\n- Nulla laoreet arcu et scelerisque tincidunt.",
+    "contentSize": "sm",
+    "contentIndex": 2,
+    "blogID": "cb0011",
+    "isActive": 1
+  },
+  {
+    "postImage": "meme7.png",
+    "postDate": "September 10, 2350",
+    "postTitle": "My face when I have an evil plan.",
+    "postContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed convallis est.",
+    "contentSize": "sm",
+    "contentIndex": 1,
+    "blogID": "cb0012",
+    "isActive": 1
   }
 ]

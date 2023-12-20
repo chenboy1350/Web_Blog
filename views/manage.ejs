@@ -10,7 +10,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/manage">Blog Manage</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/post">Post</a></li>
                     </ul>
                 </div>
             </div>
@@ -25,9 +25,9 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <% for(let items of blog_list){ %>
-                            <% if(items[5] % 2 != 0) { %>
+                            <% if(items[5] % 2 != 0 && items[7] == 1) { %>
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="<%= items[0] %>" alt="<%= items[0] %>" /></a>
+                                <a href="#!"><img class="card-img-top" src="images/<%= items[0] %>" alt="<%= items[0] %>" /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">
                                         <%= items[1] %>
@@ -53,9 +53,9 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <% for(let items of blog_list){ %>
-                            <% if(items[5] % 2 == 0) { %>
+                            <% if(items[5] % 2 == 0 && items[7] == 1) { %>
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="<%= items[0] %>" alt="<%= items[0] %>" /></a>
+                                <a href="#!"><img class="card-img-top" src="images/<%= items[0] %>" alt="<%= items[0] %>" /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">
                                         <%= items[1] %>
@@ -84,7 +84,7 @@
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Do you wanna add something New dude?</div>
+                        <div class="card-header">Do you wanna add something new dude?</div>
                         <div class="card-body">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddModal">Yub!</button>
                         </div>
@@ -120,9 +120,9 @@
                                 <textarea class="form-control" name="postContent" id="postContent" rows="3"></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="postSize" class="col-form-label">Card Size:</label>
+                                <label for="postSize" class="col-form-label">Content Size:</label>
                                 <select class="form-select" aria-label="Default select example" name="postSize" id="postSize">
-                                    <option selected>- Selest Card Size -</option>
+                                    <option selected>- Selest Content Size -</option>
                                     <option value="lg">Large</option>
                                     <option value="sm">Small</option>
                                 </select>
@@ -152,23 +152,44 @@
                     </div>
                     <form action="/edit" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
-                            <div class="mb-3">
-                                <label class="form-label" for="postImages">Title Images:</label>
-                                <input type="file" class="form-control" id="postImages" />
+                            <!-- <div class="mb-3">
+                                <label for="image" class="col-form-label">Change Image</label>
+                                <input type="file" class="form-control" name="image" id="image" />
+                            </div> -->
+                            <div class="small text-muted">
+                                * So sorry guy, but image can't change right now.
                             </div>
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Date Time:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <label for="postDate" class="col-form-label">Date Time:</label>
+                                <input type="text" class="form-control" name="postDate" id="postDate" value="<%= items[1] %>">
                             </div>
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Blog Title:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <label for="postTitle" class="col-form-label">Blog Title:</label>
+                                <input type="text" class="form-control" name="postTitle" id="postTitle" value="<%= items[2] %>">
                             </div>
                             <div class="mb-3">
-                                <label for="message-text" class="col-form-label">Blog Content:</label>
-                                <textarea class="form-control" id="message-text" rows="3"></textarea>
+                                <label for="postContent" class="col-form-label">Blog Content:</label>
+                                <textarea class="form-control" name="postContent" id="postContent" rows="3"><%= items[3] %></textarea>
                             </div>
-                            <input type="hidden" name="blogID" value="">
+                            <div class="mb-3">
+                                <label for="postSize" class="col-form-label">Content Size:</label>
+                                <select class="form-select" aria-label="Default select example" name="postSize" id="postSize">
+                                    <option>- Selest Content Size -</option>
+                                    <option value="lg" <%- items[4] === 'lg' ? 'selected': '' %>>Large</option>
+                                    <option value="sm" <%- items[4] === 'sm' ? 'selected': ''  %>>Small</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="postIndex" class="col-form-label">Content Index:</label>
+                                <input type="number" class="form-control" name="postIndex" id="postIndex" value="<%= items[5] %>">
+                            </div>
+                            <!-- <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="isActive" <%- items[7] === 1 ? 'checked': '' %>>
+                                <label class="form-check-label" for="isActive">Is Active Blog</label>
+                            </div> -->
+                            <input type="hidden" name="blogID" value="<%= items[6] %>">
+                            <input type="hidden" name="image" value="<%= items[0] %>">
+                            <input type="hidden" name="isActive" value="<%= items[7] %>">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, I'm Not.</button>
@@ -194,7 +215,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nop. I'm Not strong enough</button>
-                        <button type="button" class="btn btn-danger">Yep. Let's do it!</button>
+                        <form action="/remove" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="blogID" value="<%= items[6] %>">
+                            <button type="submit" class="btn btn-danger">Yep. Let's do it!</button>
+                        </form>
                     </div>
                 </div>
             </div>
